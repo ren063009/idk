@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<body style="background-color: pink;">
+    <div>
+        <h1>Will you be my valentine? 🥰</h1>
+        <button id="yesButton">Yes, of course!</button>
+        <button id="no">Nah, maybe next time 🤣</button>
+    </div>
+    <div id="catImage" style="text-align: center; margin-top: 20px;">
+        <img id="catPic" src="" alt="Cat Image" style="display: none;">
+    </div>
+
+    <style>
+        div {
+            text-align: center;
+            vertical-align: middle;
+        }
+        #no {
+            position: absolute;
+        }
+    </style>
+    <script>
+        document.getElementById("yesButton").addEventListener("click", showAlert);
+        function showAlert() {
+            alert("Yay! 💖 IOHE4U REI! See you soon <3");
+            document.getElementById("catPic").src = "https://www.pinterest.com/pin/22799541858949406/"; // Happy Cat Image
+            document.getElementById("catPic").style.display = "block";
+        }
+
+        var no = document.getElementById("no");
+        no.addEventListener("click", change);
+        no.addEventListener("mouseover", showCryingCat);
+        function change() {
+            var i = Math.floor(Math.random() * 1000) + 1;
+            var j = Math.floor(Math.random() * 700) + 1;
+            no.style.left = i + "px";
+            no.style.top = j + "px";
+        }
+
+        function showCryingCat() {
+            const cats = [
+                "https://www.pinterest.com/pin/cutefunny-animals--611645193143005200/",
+                "https://www.pinterest.com/pin/309692911897905256/",
+                "https://www.pinterest.com/pin/18507048512502936/",
+                "https://www.pinterest.com/pin/326088829286680881/"
+            ];
+            var randomCat = cats[Math.floor(Math.random() * cats.length)];
+            document.getElementById("catPic").src = randomCat;
+            document.getElementById("catPic").style.display = "block";
+        }
+    </script>
+</body>
+</html>
