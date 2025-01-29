@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<body style="background-color: pink;">
+    <div>
+        <h1>Will you be my valentine? 🥰</h1>
+        <button id="yesButton">Yes, of course!</button>
+        <button id="no">Nah, maybe next time 🤣</button>
+    </div>
+    <div id="catImage" style="text-align: center; margin-top: 20px;">
+        <img id="catPic" src="" alt="Cat Image" style="display: none; max-width: 300px;">
+    </div>
+
+    <style>
+        div {
+            text-align: center;
+            vertical-align: middle;
+        }
+        #no {
+            position: absolute;
+        }
+    </style>
+    <script>
+        document.getElementById("yesButton").addEventListener("click", showAlert);
+        function showAlert() {
+            alert("Yay! 💖 IOHE4U REI! See you soon <3");
+            document.getElementById("catPic").src = "https://i.pinimg.com/originals/4b/5c/8a/4b5c8a5b7e3a0efab768d780a2e3dbec.jpg"; // Happy Cat Image
+            document.getElementById("catPic").style.display = "block";
+        }
+
+        var no = document.getElementById("no");
+        no.addEventListener("click", change);
+        no.addEventListener("mouseover", showCryingCat);
+        function change() {
+            var i = Math.floor(Math.random() * 1000) + 1;
+            var j = Math.floor(Math.random() * 700) + 1;
+            no.style.left = i + "px";
+            no.style.top = j + "px";
+        }
+
+        function showCryingCat() {
+            const cats = [
+                "https://i.pinimg.com/originals/a3/65/7e/a3657ebd597a3be9d554a33aa3f089c5.jpg",
+                "https://i.pinimg.com/originals/ae/9c/49/ae9c49b8e93f24cf89cda0d70c267b29.jpg",
+                "https://i.pinimg.com/originals/dc/3b/ff/dc3bfff10cb91a2e37f442e28e8e6c7e.jpg",
+                "https://i.pinimg.com/originals/6b/7b/26/6b7b26f6e4cf6c9f2823e9dfcd2f35e0.jpg"
+            ];
+            var randomCat = cats[Math.floor(Math.random() * cats.length)];
+            document.getElementById("catPic").src = randomCat;
+            document.getElementById("catPic").style.display = "block";
+        }
+    </script>
+</body>
+</html>
