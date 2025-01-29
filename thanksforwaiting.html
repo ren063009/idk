@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<body style="background-color: pink;">
+    <div>
+        <h1>Will you be my valentine? 🥰</h1>
+        <button id="yesButton">Yes, of course!</button>
+        <button id="no">Nah, maybe next time 🤣</button>
+    </div>
+    <div id="catImage" style="text-align: center; margin-top: 20px;">
+        <img id="catPic" src="" alt="Cat Image" style="display: none; max-width: 300px; transition: opacity 0.3s ease;">
+    </div>
+
+    <style>
+        div {
+            text-align: center;
+            vertical-align: middle;
+        }
+        #no {
+            position: absolute;
+            transition: top 0.2s ease, left 0.2s ease;
+        }
+    </style>
+
+    <script>
+        // Preloading images to make them load instantly when needed
+        const imageUrls = [
+            "https://media-hosting.imagekit.io//518485a6d9e84bce/cat4.jpeg?Expires=1832777597&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=DatZ8rK9dwgl5nv07W-KKxBjuH2D8G9ZxxcBR4E-BvqEz5vng~G2wT5Y1-sZfai1usk3UIqW8qztBlox55OQ6DrxxndSbwlQGvGR8TA2NVejUBP8tOqqtF-c7pq5NLFU1GZvEzO13K6Gnev5m~qlTundT7bw-yECKeQ7-j0U5VRE0v4Z5eu3YPPqE7u-PeFTeaFn15d~lwZyt0v0LphcuOjjWjjltO9CjCQku0yo2uPmbFGr4~7GNMerDoWl8F510O-rECq5tAdhBTXeHHGocj6WhswhoYDD7uZzraQBEvQVbrHab2cqvRJc6rqn-hYy30MZOMygSf6VqHXTCa7SRw__",
+            "https://media-hosting.imagekit.io//8870af4d83904eb5/cat3.jpg?Expires=1832777597&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=RxxemP4u9m2dq812PgygwjS1WDkvOWEipH4bpg3haV4YnwmUoBkp-hIQzBmTT9YeYbHM1uZiuIDsS0qFaqG93ab4ixjbsUNWd34EYPar3jUo1wlJ8pk2YB8eRe7-cYpVXBbIKM~40GX8Ex1Un72oO8he2ZUxEULIly85VleaJd0JgNIrIx3-dH5bq3JVOJAOHO6ePgktcxRtG5kpH9HwCtWMOJWFQEqjA-RVn4FBi49WrnFNYUJ~d0yQPwT~j9Tohu34YursxXH6r1wGKjvZy093TrCA5UYeM~Hx4fg4JTY7tF6U3GH07yfXxxZLD5sAGKiEVBRaFUlULIJuDBFyiw__",
+            "https://media-hosting.imagekit.io//c830128833234d2f/cat2.gif?Expires=1832777597&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=Grkw3Fb5ITsjn6GNp2D4QLyhQQCFiWbZ5VGwB1oG~TPc-K686-a3kS5YN-SEnkNCzmgTYpu9NSrE~etPY6eDPjXBV7pJty6Cyd2Zu7D82jsjru5A6P6Zp900BiqfJNayCOGINdDgWMFGcvWxlDz5MOi1YxYn~fPAfqNhr9hUqKULvBrkN0NgUZw4kK33Xd61ZJKpQ-7Z91~kxShQ0KTGbCtvxXL4iDLk5t0ExdCKXMVVcP5rYwKAipFAF4dpwDz9D8lSfuXNF4XVZxBqO~pbZqUqbyaIJP3H4Ao06ckdUDb6r7JsyTpltR1l~QFdTGGWSBzpni00I8FMK2wXZdMDgQ__",
+            "https://media-hosting.imagekit.io//577805b2a3a84635/cat1.jpg?Expires=1832777597&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=lLTefFUv0~dTNUbun749lR6-cuzD5IRz0Me5YaFWVTpPXdhcy4sWy9oZ06KHEq2C5D-oNyy7wXDKVNPQHdPfkLW2VKYMFZdLF0dXzYMI3nINNb0o1AvTAWHV4BPvnK1T2MIFlXHwg7q5-CLfeDw~jII~eSttAEteSlMbr5awaS-ufQcmlxSWGXxLlGjXarvmHKHcETPrZgKCZJKsDFAzXD3RoS1kndptiHbeYaTqIi0t9dpAbagxGsDN0HD~4sOeOLcmA3AwYmOD1~C2Fm6kC-A5hhH0n09SrUehKpyGSIpseMlVhwkQbPrcXOd2zHIE8BchVyaKsfBFEy4MrVifSw__"
+        ];
+
+        // Preload images
+        const preloadImages = imageUrls.map(src => {
+            const img = new Image();
+            img.src = src;
+            return img;
+        });
+
+        // Show the happy cat image when "Yes" button is clicked
+        document.getElementById("yesButton").addEventListener("click", function() {
+            alert("Yay! 💖 IOHE4U REI! See you soon <3");
+            document.getElementById("catPic").src = imageUrls[3];  // Last image for "Yes"
+            document.getElementById("catPic").style.display = "block";
+        });
+
+        // Move the "No" button and show a random crying cat image when clicked
+        var no = document.getElementById("no");
+        no.addEventListener("click", function() {
+            moveButton();
+            showCryingCat();
+        });
+
+        // Move the "No" button around randomly
+        function moveButton() {
+            var i = Math.floor(Math.random() * 1000) + 1;
+            var j = Math.floor(Math.random() * 700) + 1;
+            no.style.left = i + "px";
+            no.style.top = j + "px";
+        }
+
+        // Show a random crying cat image
+        function showCryingCat() {
+            const randomIndex = Math.floor(Math.random() * 3);  // Choose from the first three crying cat images
+            document.getElementById("catPic").src = imageUrls[randomIndex];
+            document.getElementById("catPic").style.display = "block";
+        }
+    </script>
+</body>
+</html>
