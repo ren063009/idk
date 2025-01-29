@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body style="background-color: pink;">
+    <div>
+        <h1>Will you be my valentine? 🥰</h1>
+        <button id="yesButton">Yes, of course!</button>
+        <button id="no">Nah, maybe next time 🤣</button>
+    </div>
+
+    <style>
+        div {
+            text-align: center;
+            vertical-align: middle;
+        }
+        #no {
+            position: absolute;
+        }
+    </style>
+    <script>
+        document.getElementById("yesButton").addEventListener("click", showAlert);
+        function showAlert() {
+            alert("Yay! 💖 IOHE4U REI! See you soon <3");
+        }
+
+        var no = document.getElementById("no");
+        no.addEventListener("click", change);
+        function change() {
+            var i = Math.floor(Math.random() * 1000) + 1;
+            var j = Math.floor(Math.random() * 700) + 1;
+            no.style.left = i + "px";
+            no.style.top = j + "px";
+        }
+    </script>
+</body>
+</html>
