@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html>
+<body style="background-color: pink;">
+    <div>
+        <h1>Will you be my valentine? 🥰</h1>
+        <button id="yesButton">Yes, of course!</button>
+        <button id="no">Nah, maybe next time 🤣</button>
+    </div>
+    <div id="catImage" style="text-align: center; margin-top: 20px;">
+        <img id="catPic" src="" alt="Cat Image" style="display: none; max-width: 300px;">
+    </div>
+
+    <style>
+        div {
+            text-align: center;
+            vertical-align: middle;
+        }
+        #no {
+            position: absolute;
+        }
+    </style>
+    <script>
+        document.getElementById("yesButton").addEventListener("click", showAlert);
+        function showAlert() {
+            alert("Yay! 💖 IOHE4U REI! See you soon <3");
+            document.getElementById("catPic").src = "https://i.postimg.cc/c69PHYyx/710f8efb-419a-43c0-966d-bbdb1654b293.webp"; // Happy Cat Image
+            document.getElementById("catPic").style.display = "block";
+        }
+
+        var no = document.getElementById("no");
+        no.addEventListener("click", change);
+        no.addEventListener("mouseover", showCryingCat);
+        function change() {
+            var i = Math.floor(Math.random() * 1000) + 1;
+            var j = Math.floor(Math.random() * 700) + 1;
+            no.style.left = i + "px";
+            no.style.top = j + "px";
+        }
+
+        function showCryingCat() {
+            const cats = [
+                "https://i.postimg.cc/4mYqhdsz/cat1.jpg",
+                "https://i.postimg.cc/fJ1F7NR1/cat2.gif",
+                "https://i.postimg.cc/8FS03mWH/cat3.jpg",
+                "https://i.postimg.cc/bZb53BGr/cat4.jpg"
+            ];
+            var randomCat = cats[Math.floor(Math.random() * cats.length)];
+            document.getElementById("catPic").src = randomCat;
+            document.getElementById("catPic").style.display = "block";
+        }
+    </script>
+</body>
+</html>
